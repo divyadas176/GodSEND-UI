@@ -1,0 +1,60 @@
+.main-container{
+    display: flex;
+
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+/* Left Container Styles */
+.left-container {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    gap: 20px; /* Space between the two left divs */
+}
+
+.left-side-1, .left-side-2 {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Main Content Styles */
+.main-content {
+    width: 50%; /* Main content takes up more space */
+    background-color: #e0e0e0;
+    padding: 20px;
+    text-align: center;
+    /* border: 1px solid #ccc; */
+    border-radius: 5px;
+}
+
+/* Right Container Styles */
+.right-container {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    gap: 20px; /* Space between the two right divs */
+}
+
+.right-side-1, .right-side-2 {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.input-group.date {
+    width: 250px;
+    margin: 0 auto;
+  }
+  
+  #datepicker {
+    cursor: pointer;
+  }
+  
