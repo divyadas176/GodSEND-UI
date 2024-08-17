@@ -7,7 +7,10 @@ import { HomeComponent } from './components/home/home.component';
 import { ProfileCreationFormComponent } from './components/profile-creation-form/profile-creation-form.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CalenderComponent } from './components/calender/calender.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+
 
 @NgModule({
   declarations: [
@@ -15,12 +18,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     ProfileCreationFormComponent,
     UserFormComponent,
-    DashboardComponent
+    DashboardComponent,
+    CalenderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FullCalendarModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

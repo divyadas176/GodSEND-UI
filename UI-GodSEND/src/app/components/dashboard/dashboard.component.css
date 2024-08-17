@@ -1,16 +1,27 @@
 .container {
-    display: flex;
+    /* display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    padding: 20px; */
+    display: flex;
+    justify-content: space-between;
     padding: 20px;
+    background-color: #f0f4f7; /* Light background for the page */
+    gap: 20px; /* Space between columns */
+    align-items: stretch; 
 }
 
 /* Left Container Styles */
 .left-container {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     width: 20%;
-    gap: 20px; /* Space between the two left divs */
+    gap: 20px; /*Space between the two left divs */
+
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .left-side-1, .left-side-2 {
@@ -18,6 +29,7 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    flex:1
 }
 
 /* Main Content Styles */
@@ -28,13 +40,16 @@
     text-align: center;
     border: 1px solid #ccc;
     border-radius: 5px;
+    flex-direction: column;
+    height:680px;
 }
 
 /* Right Container Styles */
 .right-container {
     display: flex;
     flex-direction: column;
-    width: 20%;
+    width: 25%;
+    
     gap: 20px; /* Space between the two right divs */
 }
 
@@ -43,6 +58,7 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    flex:1
 }
 
 .left-side-2 {
@@ -51,6 +67,7 @@
     border-radius: 5px; /* Rounded corners */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     max-width: 100%; /* Ensures the container itself does not exceed parent width */
+    
   }
   
   .knowledge-textarea {

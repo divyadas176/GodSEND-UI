@@ -1,0 +1,13 @@
+.calendar-container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .fc-daygrid-day {
+    cursor: pointer;
+  }
+  
+  .fc-daygrid-day-number {
+    color: #007bff;
+  }
+  
