@@ -1,14 +1,46 @@
 <div class="container">
     <div class="left-container">
         <div class="left-side-1">
-            
-              
+
+
         </div>
-        <div class="left-side-2">Left Side 2</div>
+        <div class="left-side-2">
+            <h3>Knowledge Center</h3>
+            <textarea class="knowledge-textarea" rows="10" cols="30" placeholder="Enter information here..."></textarea>
+        </div>
     </div>
     <div class="main-content"><app-profile-creation-form></app-profile-creation-form></div>
     <div class="right-container">
-        <div class="right-side-1">Right Side 1</div>
-        <div class="right-side-2">Right Side 2</div>
+        <div class="right-side-1">
+            <div class="group-content">
+                <h3>Groups</h3>
+                <button class="btn btnCSS add-group-btn addBtn">+ </button>
+              </div>
+            <div class="group-list">
+                <div *ngFor="let group of groups" class="group-item">
+                    <div class="group-content">
+                        <h4 class="group-name">{{ group.name }}</h4>
+                        <button class="btn btnCSS" >Join</button>
+                    </div>
+                    <p>{{ group.description }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="right-side-2">
+            <div class="group-content">
+                <h3>Events</h3>
+                <button class="btn btnCSS add-group-btn addBtn">+ </button>
+              </div>
+            <div class="group-list">
+                <div *ngFor="let event of events" class="group-item">
+                    <div class="group-content">
+                        <h4 class="group-name">{{ event.name }}</h4>
+                        <button class="btn btnCSS" >I am Interested</button>
+                    </div>
+                    <p>{{ event.host }}</p>
+                </div>
+            </div>
+        
+        </div>
     </div>
 </div>

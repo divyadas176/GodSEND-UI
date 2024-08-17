@@ -1,43 +1,31 @@
-.button-container {
-    text-align: center; /* Centers the buttons horizontally */
-    
-    display: flex;
-    justify-content: space-between; /* Space between the buttons */
-    gap: 10px; 
-  }
-  
-  button {
-    display: inline-block;
-    margin: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .btnLogin {
-    
-    color: white;
-    border: none;
-  }
-  
-  .btnRegister {
-    
-    color: white;
-    border: none;
-  }
-
-  /* Style for the container that holds the form */
 .formContainer {
+    padding-top: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; /* Stack title and form vertically */
+    justify-content: center; /* Center the content vertically */
+    align-items: center; /* Center the content horizontally */
     height: 100vh; /* Full viewport height to center vertically */
     background-color: #f4f4f4; /* Light background for the whole page */
   }
   
+  /* Style for the form title */
+  .form-title {
+    text-align: center; /* Center the text horizontally */
+    color: #6f42c1; /* Purple color */
+    font-size: 2rem; /* Larger font size */
+    font-weight: bold; /* Bold font */
+    margin: 0; /* Remove default margins */
+    padding: 20px 0; /* Add padding for spacing */
+    background-color: #fff; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    border: 1px solid #ddd; /* Light border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    margin-bottom: 20px; /* Space below the title */
+  }
+  
   /* Style for the form itself */
   form {
+    margin-top: 0;
     width: 100%;
     max-width: 400px; /* Maximum width of the form */
     padding: 20px;
@@ -47,7 +35,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   }
   
-  /* Optional styling for form elements */
+  /* Styling for form elements */
   .form-group {
     margin-bottom: 15px;
   }
@@ -68,11 +56,19 @@
     border: 1px solid #ccc;
   }
   
+  /* Style for buttons */
+  .button-container {
+    text-align: center; /* Center the buttons horizontally */
+    display: flex;
+    justify-content: space-between; /* Space between buttons */
+    gap: 10px; /* Gap between buttons */
+  }
   button {
-    width: 100%;
+    flex: 1; /* Buttons take equal space */
+    margin: 5px;
     padding: 10px;
     background-color: rgb(158, 158, 227);
-    color: black;
+    color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -81,7 +77,6 @@
   }
   
   button:hover {
-    background-color: #576e86;
+    background-color:#576e86;
   }
-  
   

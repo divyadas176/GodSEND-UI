@@ -10,39 +10,77 @@
   /* Style for the form */
   form {
     width: 100%;
-    max-width: 400px; /* Maximum width of the form */
+    max-width: 500px; /* Maximum width of the form */
     padding: 20px;
     background-color: white;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd; /* Lighter border */
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slightly deeper shadow */
+    display: flex;
+    flex-direction: column; /* Stack form controls vertically */
   }
   
   /* Styling for form group (label + input) */
   .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* Increased spacing between form groups */
   }
   
+  /* Style for form labels */
   label {
     display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    font-size: 17px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    color: #333; /* Darker text color for better readability */
   }
-
+  
+  /* Style for form inputs */
+  input[type="text"], 
+  input[type="number"], 
+  select {
+    width: 100%;
+    padding: 12px; /* Increased padding for better touch target */
+    margin-top: 4px;
+    border-radius: 4px;
+    border: 1px solid #ddd; /* Light border */
+    box-sizing: border-box; /* Ensures padding does not affect width */
+  }
+  
+  /* Style for the submit button */
   button {
     width: 100%;
-    padding: 10px;
+    padding: 12px; /* Increased padding for better touch target */
     background-color: rgb(158, 158, 227);
-    color: black;
+    color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 17px;
+    font-size: 16px; /* Slightly smaller font size for buttons */
     font-weight: bold;
+    transition: background-color 0.3s ease; /* Smooth color transition */
+  }
+  
+  button:hover {
+    background-color:#576e86;
+  }
+  
+  button:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 0 2px rgba(38, 143, 255, 0.5); /* Custom focus outline */
   }
 
-  button:hover {
-    background-color: #576e86;
+  /* Style for the page title */
+.page-title {
+    text-align: center; /* Center the text horizontally */
+    color: #6f42c1; /* Purple color */
+    font-size: 2rem; /* Increase font size */
+    font-weight: bold; /* Make the font bold */
+    margin: 0; /* Remove default margins */
+    padding: 10px 0; /* Add padding for spacing */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow for a lifted effect */
+    background-color: #f8f9fa; /* Light background color to make the text stand out */
+    padding-bottom: 10px
+    
   }
+  
   

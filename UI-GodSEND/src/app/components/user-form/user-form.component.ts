@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import {  Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-form',
@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UserFormComponent {
       userForm! : FormGroup
-      constructor(private fb: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute){}
+      constructor(private fb: FormBuilder, private router: Router){}
 
       ngOnInit(){
         this.userForm = this.fb.group({

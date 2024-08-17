@@ -1,8 +1,3 @@
-.main-container{
-    display: flex;
-
-}
-
 .container {
     display: flex;
     justify-content: space-between;
@@ -31,7 +26,7 @@
     background-color: #e0e0e0;
     padding: 20px;
     text-align: center;
-    /* border: 1px solid #ccc; */
+    border: 1px solid #ccc;
     border-radius: 5px;
 }
 
@@ -49,12 +44,104 @@
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-.input-group.date {
-    width: 250px;
-    margin: 0 auto;
+
+.left-side-2 {
+    background-color: #f8f9fa; /* Light background color for contrast */
+    padding: 20px; /* Space around the content */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 100%; /* Ensures the container itself does not exceed parent width */
   }
   
-  #datepicker {
-    cursor: pointer;
+  .knowledge-textarea {
+    width: 100%; /* Full width to match the container */
+    max-width: 100%; /* Prevents exceeding the container width */
+    padding: 10px; /* Space inside the textarea */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #ccc; /* Light border color */
+    resize: vertical; /* Allows vertical resizing only */
+    font-size: 16px; /* Larger text for readability */
+    box-sizing: border-box; /* Includes padding and border in width calculation */
+  }
+
+  .right-side-1 {
+    background-color: #f8f9fa; /* Light background color for contrast */
+    padding: 20px; /* Space around the content */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    height: 200px; /* Fixed height to enable scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 1px solid #ccc; /* Optional border */
+  }
+  
+  .group-list {
+    display: flex;
+    flex-direction: column; /* Stacks groups vertically */
+    gap: 15px; /* Space between group items */
+  }
+  
+  .group-item {
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+  }
+  
+  .group-content {
+    display: flex; /* Aligns children horizontally */
+    justify-content: space-between; /* Space between name and button */
+    align-items: center; /* Vertically centers items */
+  }
+  
+  .group-name {
+    margin: 0; /* Removes default margin */
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .group-item button {
+    margin-left: 10px; /* Space between name and button */
+  }
+  .btnCSS{
+  background-color: rgb(158, 158, 227);
+  border: none;
+  
+  }
+
+  .addBtn{
+  width:36px;
+  height :36px;
+  
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  }
+
+  button:hover {
+    background-color: #576e86;
+  }
+
+  .add-group-btn {
+    background-color:  rgb(158, 158, 227);/* Green background for the button */
+    color: white; /* White text color */
+    border: none; /* Removes default border */
+    display: flex; /* Aligns children horizontally */
+    justify-content: space-between; /* Space between name and button */
+    align-items: center; /* Vertically centers items */
+  }
+  
+  .add-group-btn:hover {
+    background-color:  #576e86; /* Darker green on hover */
+  }
+
+  .right-side-2{
+    background-color: #f8f9fa; /* Light background color for contrast */
+    padding: 20px; /* Space around the content */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    height: 200px; /* Fixed height to enable scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 1px solid #ccc; /* Optional border */
   }
   
