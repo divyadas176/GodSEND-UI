@@ -10,7 +10,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalenderComponent } from './components/calender/calender.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
-
+import { HttpClientModule } from '@angular/common/http';
+import { GroupCreationComponent } from './components/group-creation/group-creation.component';
+import { EventCreationComponent } from './components/event-creation/event-creation.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +21,17 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     ProfileCreationFormComponent,
     UserFormComponent,
     DashboardComponent,
-    CalenderComponent
+    CalenderComponent,
+    GroupCreationComponent,
+    EventCreationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FullCalendarModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

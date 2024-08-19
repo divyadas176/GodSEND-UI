@@ -1,0 +1,85 @@
+/* Container Styling */
+.formContainer {
+    padding-top: 0;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    height: 100vh; /* Full viewport height */
+    background-color: #f4f4f4; /* Light grey background */
+}
+
+/* Style for the form title */
+.form-title {
+    text-align: center; /* Center the text */
+    color: #6f42c1; /* Purple color */
+    font-size: 2rem; /* Large font size */
+    font-weight: bold; /* Bold font */
+    margin: 0; /* Remove default margins */
+    padding: 20px 0; /* Padding for spacing */
+    background-color: #fff; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    border: 1px solid #ddd; /* Light border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+/* Style for the form itself */
+form {
+    margin-top: 0;
+    width: 100%;
+    max-width: 400px; /* Max width of the form */
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Styling for form elements */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* Style for buttons */
+.button-container {
+    text-align: center; /* Center buttons horizontally */
+    display: flex;
+    justify-content: space-between; /* Space between buttons */
+    gap: 10px; /* Gap between buttons */
+}
+
+button {
+    flex: 1; /* Buttons take equal space */
+    margin: 5px;
+    padding: 10px;
+    background-color: rgb(158, 158, 227); /* Soft purple background */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #576e86; /* Darker shade on hover */
+}

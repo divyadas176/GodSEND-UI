@@ -1,7 +1,7 @@
 <h3 class="page-title">Profile Creation</h3>
 <div class="container-fluid formContainer">
 
-<form [formGroup]="profileForm" >
+<form [formGroup]="profileForm"  (ngSubmit)="onSubmit()">
     
     <div class="form-group">
       <label for="parentName">Parent Name</label>
