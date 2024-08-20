@@ -1,0 +1,16 @@
+<div class="formContainer">
+<form [formGroup]="userForm">
+    <div class="form-group">
+        <label for="userName">Username</label>
+        <input id="userName" type="text" formControlName="userName" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" type="text" formControlName="password" class="form-control"/>
+    </div>
+    <div class="button-container">
+        <button class="btn btn-success btnLogin" (click)="onRegister()">Login</button>
+        <button class="btn btn-success btnRegister" (click)="onLogin()">Register</button>
+      </div>
+</form>
+</div>

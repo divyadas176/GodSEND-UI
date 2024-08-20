@@ -1,0 +1,16 @@
+<div class="formContainer">
+    <form [formGroup]="groupForm">
+        <div class="form-group">
+            <label for="groupName">Group Name</label>
+            <input id="groupName" type="text" formControlName="groupName" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="description">Group Description</label>
+            <textarea class="knowledge-textarea" formControlName="description" rows="4" cols="50" placeholder="Enter Group Description"></textarea>
+        </div>
+        <div class="button-container">
+            <button class="btn btn-success btnGroup" (click)="onGroupCreation()">Create Group</button>
+            
+          </div>
+    </form>
+    </div>

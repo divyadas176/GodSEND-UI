@@ -1,0 +1,58 @@
+<div class="container " *ngIf="parent">
+    <div class="left-container">
+        <div class="left-side-1">
+           
+            <full-calendar [options]="calendarOptions"></full-calendar>
+
+        </div>
+        <div class="left-side-2">
+            <h3>Knowledge Center</h3>
+            <div class="knowledge-content">
+                Autism spectrum disorder is a condition related to brain development that impacts how a person perceives and socializes with others, causing problems in social interaction and communication. The disorder also includes limited and repetitive patterns of behavior. The term "spectrum" in autism spectrum disorder refers to the wide range of symptoms and severity.
+              </div>
+        </div>
+    </div>
+    <div class="main-content"></div>
+    <div class="right-container">
+        <div class="right-side-1">
+            <div class="group-content">
+                <h3>Groups</h3>
+                <button class="btn btnCSS add-group-btn addBtn" (click)="addANewGroup()">+ </button>
+              </div>
+            <div class="group-list">
+                <div *ngFor="let group of groups" class="group-item">
+                    <div class="group-content">
+                        <h4 class="group-name">{{ group.name }}</h4>
+                        <button class="btn btnCSS"  [ngClass]="{'btn-success': group.isJoined}"
+                        [disabled]="group.isJoined" (click)="onGroupJoin(group)">  
+                        {{ group.isJoined ? 'Joined' : 'Join' }}</button>
+                    </div>
+                    <p>{{ group.description }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="right-side-2">
+            <div class="group-content">
+                <h3>Events</h3>
+                <button class="btn btnCSS add-group-btn addBtn" (click)="addANewEvent()" >+ </button>
+              </div>
+            <div class="group-list">
+                <div *ngFor="let event of events" class="group-item">
+                    <div class="group-content">
+                        <h4 class="group-name">{{ event.name }}</h4>
+                        <button class="btn btnCSS"  (click)="onEventAttending(event)"
+                        [ngClass]="{'btn-success':event.isInterested }"
+                        [disabled]="event.isInterested"> 
+                            {{ event.isInterested ? 'I Am Attending' : 'Are You Attending?' }}</button>
+                    </div>
+                    <p>{{ event.host }}</p>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+
+
+<router-outlet></router-outlet>
