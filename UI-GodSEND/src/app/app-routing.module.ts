@@ -8,10 +8,10 @@ import { GroupCreationComponent } from './components/group-creation/group-creati
 import { EventCreationComponent } from './components/event-creation/event-creation.component';
 
 const routes: Routes = [
-  {path:'', redirectTo:'/home', pathMatch:'full'},
-  {path:'home', component:HomeComponent},
-  {path:'profile', component: ProfileCreationFormComponent},
-  {path: 'dashboard', component: DashboardComponent,
+  {path:'', redirectTo:'/godsend', pathMatch:'full'},
+  {path:'godsend', component:HomeComponent ,children: [
+    {path:'profile/:id', component: ProfileCreationFormComponent},
+    {path: 'dashboard/:id', component: DashboardComponent,
     children: [
       {
         path: 'add-group',
@@ -22,7 +22,8 @@ const routes: Routes = [
         component: EventCreationComponent,
       }
     ]
-  },
+  }
+  ]},
   
 ];
 

@@ -1,43 +1,67 @@
-<h3 class="page-title">Profile Creation</h3>
-<div class="container-fluid formContainer">
-
-<form [formGroup]="profileForm"  (ngSubmit)="onSubmit()">
-    
-    <div class="form-group">
-      <label for="parentName">Parent Name</label>
-      <input id="parentName" formControlName="parentName" type="text" class="form-control"/>
-    </div>
-  
-    
-    <div class="form-group">
-      <label for="address">Address</label>
-      <input id="address" formControlName="address" type="text" class="form-control"/>
-    </div>
-  
-    
-    <div class="form-group">
-      <label for="childName">Child Name</label>
-      <input id="childName" formControlName="childName" type="text" class="form-control"/>
-    </div>
-  
-    
-    <div class="form-group">
-      <label for="childAge">Child Age</label>
-      <input id="childAge" formControlName="childAge" type="number" class="form-control"/>
-    </div>
-  
-    
-    <div class="form-group">
-      <label for="diseaseCategory">Disease Category</label>
-      <select id="diseaseCategory" formControlName="diseaseCategory" class="form-control">
-        <option value="" disabled>Select a category</option>
-        <option *ngFor="let category of diseaseCategories" [value]="category">
-          {{ category }}
-        </option>
-      </select>
-    </div>
-  
+<div class="full-container">
    
-    <button type="submit" class="btn btn-primary" >Create Profile</button>
-  </form>
+
+    <div class="container-fluid form-container">
+
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+            <div class="form-group">
+                <label for="parentName">Parent Name</label>
+                <input id="parentName" formControlName="parentName" type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" formControlName="email" type="email" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input id="address" formControlName="address" type="text" class="form-control" />
+            </div>
+
+
+            <div class="form-group">
+                <label for="childName">Child Name</label>
+                <input id="childName" formControlName="childName" type="text" class="form-control" />
+            </div>
+
+
+            <div class="form-group">
+                <label for="childAge">Child Age</label>
+                <input id="childAge" formControlName="childAge" type="number" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <div class="radio-group">
+                    <label for="gender-male">
+                        <input id="gender-male" type="radio" formControlName="childGender" name="childGender" value="male" /> Male
+                    </label>
+                    <label for="gender-female">
+                        <input id="gender-female" type="radio" formControlName="childGender" name="childGender" value="female" />
+                        Female
+                    </label>
+                    <label for="gender-others">
+                        <input id="gender-others" type="radio" formControlName="childGender" name="childGender" value="others" />
+                        Others
+                    </label>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="diseaseCategory">Disease Category</label>
+                <select id="diseaseCategory" formControlName="diseaseCategory" class="form-control">
+                    <option value="" disabled>Select a category</option>
+                    <option *ngFor="let category of diseaseCategories" [value]="category">
+                        {{ category }}
+                    </option>
+                </select>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Create Profile</button>
+        </form>
+        <div *ngIf="profileCreationSuccessMsg" class="text-success">{{profileCreationSuccessMsg}}</div>
+    </div>
 </div>

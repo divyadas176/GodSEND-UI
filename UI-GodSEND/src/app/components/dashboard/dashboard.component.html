@@ -20,14 +20,14 @@
                 <button class="btn btnCSS add-group-btn addBtn" (click)="addANewGroup()">+ </button>
               </div>
             <div class="group-list">
-                <div *ngFor="let group of groups" class="group-item">
+                <div *ngFor="let group of groupsAvailable" class="group-item">
                     <div class="group-content">
-                        <h4 class="group-name">{{ group.name }}</h4>
+                        <h4 class="group-name">{{ group.groupName }}</h4>
                         <button class="btn btnCSS"  [ngClass]="{'btn-success': group.isJoined}"
                         [disabled]="group.isJoined" (click)="onGroupJoin(group)">  
                         {{ group.isJoined ? 'Joined' : 'Join' }}</button>
                     </div>
-                    <p>{{ group.description }}</p>
+                    <p>{{ group.groupDescription }}</p>
                 </div>
             </div>
         </div>

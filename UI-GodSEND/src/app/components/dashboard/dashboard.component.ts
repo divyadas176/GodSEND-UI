@@ -8,6 +8,10 @@ import interactionPlugin from '@fullcalendar/interaction';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Group } from 'src/app/models/group';
 import { EventsForUser } from 'src/app/models/eventsForUser';
+import { GetAllGroupsService } from 'src/app/services/get-all-groups.service';
+
+
+
 
 @Component({
   selector: 'app-dashboard',
@@ -15,24 +19,32 @@ import { EventsForUser } from 'src/app/models/eventsForUser';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
+
+  groupsAvailable : any
   calendarOptions: CalendarOptions = {
     plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin], // Configure plugins
     initialView: 'dayGridMonth', // Default view
     dateClick: this.handleDateClick.bind(this), // Handle date click
+
     events: [
       // Example events
       { title: 'Event 1', date: '2024-08-17' },
       { title: 'Event 2', date: '2024-08-18' }
     ]
   };
-  constructor(private router : Router, private activateRoute : ActivatedRoute){}
-  ngOnInit() {}
+  constructor(private router : Router, private activateRoute : ActivatedRoute,
+    private getAllGroupsService : GetAllGroupsService
+  ){}
+  ngOnInit() {
+      this.groupsAvailable= this.getAllGroupsService.getAllGroups()
+    
+  }
   parent : boolean=true
   handleDateClick(arg: any) {
     alert('Date clicked: ' + arg.dateStr);
   }
 
-
+  
 
 
 

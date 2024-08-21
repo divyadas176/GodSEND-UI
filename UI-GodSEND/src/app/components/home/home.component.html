@@ -1,6 +1,7 @@
-
-
 <h1 class="page-title">GodSEND</h1>
 
-<app-user-form></app-user-form>
+<!-- Conditionally show app-user-form -->
+<app-user-form *ngIf="showUserForm"></app-user-form>
+
+<!-- Router outlet for child routes -->
 <router-outlet></router-outlet>
