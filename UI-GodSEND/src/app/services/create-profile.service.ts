@@ -7,13 +7,21 @@ import { UserProfile } from '../models/userProfile';
   providedIn: 'root'
 })
 export class CreateProfileService {
-  private url : string= ""
+  private url : string= "http://localhost:8080/godsend/users/"
   response : any
+  
+
+  getUserID(): string | null {
+    return sessionStorage.getItem('userID');
+  }
+
   constructor(private http: HttpClient ) { }
 
   createProfile(form: any): Observable<any>{
+     let userID =  this.getUserID()
+     let postURL = this.url+userID+"/userprofile"
       const options= new HttpHeaders({'Content-Type':'application/json'})
-      this.response = this.http.post<UserProfile>(this.url,form ,{headers: options}).pipe(catchError(this.errorHandler))
+      this.response = this.http.post<any>(postURL,form ,{headers: options}).pipe(catchError(this.errorHandler))
       return this.response
   }
 

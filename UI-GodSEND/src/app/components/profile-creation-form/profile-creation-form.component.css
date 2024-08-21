@@ -1,86 +1,131 @@
-/* Center the form in the viewport */
-.formContainer {
+/* Full Container */
+.full-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Title Container */
+.title-container {
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    flex: 0 1 10%; /* Use 10% of the height for the title */
+}
+
+/* Form Container */
+.form-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full viewport height */
-    background-color: #f4f4f4; /* Light background for the page */
-  }
-  
-  /* Style for the form */
-  form {
+    flex: 1; /* Take up the remaining height after the title */
+    background-color: #f4f4f4;
+}
+
+/* Form Styling */
+form {
+    
+    margin-top: 10px;
     width: 100%;
-    max-width: 500px; /* Maximum width of the form */
+    max-width: 500px;
     padding: 20px;
     background-color: white;
-    border: 1px solid #ddd; /* Lighter border */
+    border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slightly deeper shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column; /* Stack form controls vertically */
-  }
-  
-  /* Styling for form group (label + input) */
-  .form-group {
-    margin-bottom: 20px; /* Increased spacing between form groups */
-  }
-  
-  /* Style for form labels */
-  label {
+    flex-direction: column;
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 10px;
+    
+}
+
+/* Label Styling */
+label {
     display: block;
     margin-bottom: 8px;
     font-weight: 600;
     font-size: 16px;
-    color: #333; /* Darker text color for better readability */
-  }
-  
-  /* Style for form inputs */
-  input[type="text"], 
-  input[type="number"], 
-  select {
+    color: #333;
+}
+
+/* Input Field Styling */
+input[type="text"], 
+input[type="number"], 
+input[type="email"], 
+select {
     width: 100%;
-    padding: 12px; /* Increased padding for better touch target */
+    padding: 12px;
     margin-top: 4px;
     border-radius: 4px;
-    border: 1px solid #ddd; /* Light border */
-    box-sizing: border-box; /* Ensures padding does not affect width */
-  }
-  
-  /* Style for the submit button */
-  button {
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+/* Styling for the Child Gender Field */
+.child-gender-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.child-gender-group label {
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+    margin-right: 10px;
+}
+
+.child-gender-group input[type="radio"] {
+    margin-right: 5px;
+}
+
+/* Submit Button Styling */
+button {
     width: 100%;
-    padding: 12px; /* Increased padding for better touch target */
+    padding: 12px;
     background-color: rgb(158, 158, 227);
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px; /* Slightly smaller font size for buttons */
+    font-size: 16px;
     font-weight: bold;
-    transition: background-color 0.3s ease; /* Smooth color transition */
-  }
-  
-  button:hover {
-    background-color:#576e86;
-  }
-  
-  button:focus {
-    outline: none; /* Remove default focus outline */
-    box-shadow: 0 0 0 2px rgba(38, 143, 255, 0.5); /* Custom focus outline */
-  }
+    transition: background-color 0.3s ease;
+}
 
-  /* Style for the page title */
+button:hover {
+    background-color: #576e86;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(38, 143, 255, 0.5);
+}
+
+/* Page Title Styling */
 .page-title {
-    text-align: center; /* Center the text horizontally */
-    color: #6f42c1; /* Purple color */
-    font-size: 2rem; /* Increase font size */
-    font-weight: bold; /* Make the font bold */
-    margin: 0; /* Remove default margins */
-    padding: 10px 0; /* Add padding for spacing */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow for a lifted effect */
-    background-color: #f8f9fa; /* Light background color to make the text stand out */
-    padding-bottom: 10px
-    
-  }
-  
-  
+    text-align: center;
+    color: #6f42c1;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Title Background Styling */
+.title {
+    text-align: center;
+    color: purple;
+    background-color: rgb(158, 158, 227);
+    height: 80px;
+    padding-top: 18px;
+}
+
+.radio-group{
+    display: flex;
+}

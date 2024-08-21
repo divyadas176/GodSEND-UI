@@ -133,6 +133,7 @@
   justify-content: center;
   align-items: center;
   font-size: 36px;
+  
   }
 
   button:hover {
@@ -144,8 +145,10 @@
     color: white; /* White text color */
     border: none; /* Removes default border */
     display: flex; /* Aligns children horizontally */
-    justify-content: space-between; /* Space between name and button */
+    justify-content: center; /* Space between name and button */
     align-items: center; /* Vertically centers items */
+    width:36px;
+  height :36px;
   }
   
   .add-group-btn:hover {

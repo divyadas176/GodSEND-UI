@@ -83,3 +83,25 @@ button {
 button:hover {
     background-color: #576e86; /* Darker shade on hover */
 }
+
+.title{
+    text-align: center;
+    color: purple;
+    background-color: rgb(158, 158, 227);
+    height: 80px;
+    padding-top: 18px;
+}
+
+
+.page-title {
+    text-align: center; /* Center the text horizontally */
+    color: #6f42c1; /* Purple color */
+    font-size: 2rem; /* Increase font size */
+    font-weight: bold; /* Make the font bold */
+    margin: 0; /* Remove default margins */
+    padding: 10px 0; /* Add padding for spacing */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow for a lifted effect */
+    background-color: #f8f9fa; /* Light background color to make the text stand out */
+    padding-bottom: 10px
+    
+  }
