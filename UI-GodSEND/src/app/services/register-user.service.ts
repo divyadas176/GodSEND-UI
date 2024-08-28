@@ -17,7 +17,12 @@ export class RegisterUserService {
     const options= new HttpHeaders({'Content-Type':'application/json'})
     return this.http.post<RegisterUserResponse>(this.url, form, {headers: options}).pipe(
       map(response => {
-        sessionStorage.setItem('userID', response.userId);
+        console.log("response got :",response)
+        
+        
+        console.log("response message got :",response.message)
+        sessionStorage.setItem('userID', response.userID);
+        console.log("In reg Service : userID : " , response.userID)
         return response;
       })
     );

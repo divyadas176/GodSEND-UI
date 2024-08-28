@@ -19,16 +19,19 @@ export class UserAuthenticationService {
 }
 
 private errorHandler(err: HttpErrorResponse): any{
-  if (err.status === 401) {
-    this.errorMsg = err.error?.message || 'Unauthorized access'; // Adjust according to your backend response
-  } else {
-    this.errorMsg = 'An unexpected error occurred';
-  }
+  let errorMsg: string;
 
-  // Optionally log the error to an external service
-  console.error('Error occurred:', err);
+    if (err.status === 401 && err.error && err.error.message) {
+      // Extract the error message from the backend response
+      errorMsg = err.error.message;
+      console.log("Hurrayyyy : ", errorMsg)
+    } else {
+      errorMsg = 'An unexpected error occurred';
+    }
 
-  return throwError(() => new Error(this.errorMsg));
+   
+
+    return throwError(() => new Error(errorMsg));
 
 }
 }

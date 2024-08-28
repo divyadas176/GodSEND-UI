@@ -9,6 +9,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Group } from 'src/app/models/group';
 import { EventsForUser } from 'src/app/models/eventsForUser';
 import { GetAllGroupsService } from 'src/app/services/get-all-groups.service';
+import { GetAllGroupsForAUserService } from 'src/app/services/get-all-groups-for-auser.service';
+import { JoinAGroupService } from 'src/app/services/join-agroup.service';
 
 
 
@@ -21,6 +23,14 @@ import { GetAllGroupsService } from 'src/app/services/get-all-groups.service';
 export class DashboardComponent {
 
   groupsAvailable : any
+  groupsInWhichUserIsAMember : any 
+  extractedGroup : any
+  grpsHavingPosts : any
+  availGrpIDs : any
+  userJoinedGrpIDs : any
+  userID : any
+  joined : boolean = false
+  isInDashboard : boolean = true
   calendarOptions: CalendarOptions = {
     plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin], // Configure plugins
     initialView: 'dayGridMonth', // Default view
@@ -33,10 +43,40 @@ export class DashboardComponent {
     ]
   };
   constructor(private router : Router, private activateRoute : ActivatedRoute,
-    private getAllGroupsService : GetAllGroupsService
+    private getAllGroupsService : GetAllGroupsService,
+    private getAllGroupsForAUserService: GetAllGroupsForAUserService,
+    private joinAGroupService: JoinAGroupService
   ){}
   ngOnInit() {
-      this.groupsAvailable= this.getAllGroupsService.getAllGroups()
+      
+      this.getAllGroupsService.getAllGroups().subscribe(data=>{
+        this.groupsAvailable = data
+        this.availGrpIDs = this.groupsAvailable.map(group=> group.groupId)
+        console.log("Got All Groups for this user")
+      }, error=>{
+        console.log("Error, Failed to get all groups for the user")
+      })
+
+      this.activateRoute.paramMap.subscribe(params=>{
+          this.userID = params.get('id')
+          
+      })
+
+      this.getAllGroupsForAUserService.getAllGroups(this.userID).subscribe(data=>{
+        this.groupsInWhichUserIsAMember = data
+        console.log(this.groupsInWhichUserIsAMember)
+        this.extractedGroup = this.groupsInWhichUserIsAMember.groups
+        console.log(this.extractedGroup)
+        this.grpsHavingPosts = this.extractedGroup.filter(group => group.groupPosts.length > 0);
+        this.userJoinedGrpIDs = this.extractedGroup.map(group => group.groupId)
+        console.log("user is memeber in these groups : ")
+        console.log(this.groupsInWhichUserIsAMember)
+
+        console.log(this.extractedGroup)
+      })
+
+
+    
     
   }
   parent : boolean=true
@@ -44,7 +84,11 @@ export class DashboardComponent {
     alert('Date clicked: ' + arg.dateStr);
   }
 
+  isUserMember(group: any): boolean {
+    return this.userJoinedGrpIDs && this.userJoinedGrpIDs.includes(group.groupId);
+  }
   
+
 
 
 
@@ -60,6 +104,8 @@ export class DashboardComponent {
 
   addANewGroup(){
      this.parent=false
+     
+
      this.router.navigate(['add-group'], { relativeTo: this.activateRoute })
   }
 
@@ -81,5 +127,30 @@ export class DashboardComponent {
     event.isInterested = true
   }
 
+  openADialog(){
+
+  }
+
+  joinGroup(groupID){
+    if (this.userID) {
+      this.joinAGroupService.joinAGroup(groupID, this.userID).subscribe({
+        
+        next: () => {
+          console.log("User has joined a group");
+          
+          
+        },
+        error: (error) => console.log("Error joining group:", error)
+      });
+    }
+  }
+
+  onReplyBtn(){
+    // call replyservice fn
+  }
+
+  addAPostToGroup(){
+    // call add a post service fn
+  }
   
 }

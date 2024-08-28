@@ -12,7 +12,8 @@ export class GetAllGroupsService {
    
   getAllGroups(){
     this.response = this.http.get<any>(this.getAllGrpsURL)
-    return this.response
+    return this.response ?this.response : null
+    
   }
 
 }

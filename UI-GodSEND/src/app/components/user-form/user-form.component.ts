@@ -12,9 +12,11 @@ import { UserAuthenticationService } from 'src/app/services/user-authentication.
 })
 export class UserFormComponent {
       userForm! : FormGroup
-      errorMsg : string=""
+      loginErrorMsg : string=""
       logginedUserID : any ="1"
-  registeredUserID: any="2";
+      registerErrorMsg : string=""
+      registeredUserID: any="2";
+      registerd : boolean = false
  
 
       constructor(private fb: FormBuilder, private router: Router, 
@@ -31,10 +33,12 @@ export class UserFormComponent {
         const user: User = this.userForm.value;
           this.userAuthService.isAuthenticated(user).subscribe(data=>{
             this.logginedUserID = data.userId
+            console.log("User is found")
             this.router.navigate(['godsend/dashboard', this.logginedUserID])
           },error=>{
-              this.errorMsg = error
-              this.router.navigate(['godsend/dashboard', this.logginedUserID])
+              this.loginErrorMsg = error
+              console.log(this.loginErrorMsg)
+              console.log("Error, User not found")
           })
           
       }
@@ -43,10 +47,17 @@ export class UserFormComponent {
        
         const user: User = this.userForm.value;
         this.registerUserService.registerUser(user).subscribe(data=>{
-          this.registeredUserID = data.userId
+          console.log("data received : ", data)
+          this.registeredUserID = data.userID
+          console.log("User is Registered with userID: ", this.registeredUserID)
           this.router.navigate(['godsend/profile', this.registeredUserID])
+          console.log("Routed")
         },error=>{
-          this.router.navigate(['godsend/profile', this.registeredUserID])
+          // this.registerErrorMsg = "Please Register First"
+          // console.log("mine : ", this.registerErrorMsg)
+          console.log(error)
+         console.log("heyyyyyy :" )
+          // console.log("Error, User is not Registered")
         })
 
 

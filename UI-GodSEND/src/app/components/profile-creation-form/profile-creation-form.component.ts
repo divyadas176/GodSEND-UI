@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AnyComponent } from '@fullcalendar/core/preact';
 import { CreateProfileService } from 'src/app/services/create-profile.service';
 
@@ -15,9 +15,11 @@ export class ProfileCreationFormComponent {
   successData : any
   errorData : any
   profileCreationSuccessMsg : string=""
-  userID : AnyComponent
-
-  constructor(private fb: FormBuilder, private router: Router, private createProfileService : CreateProfileService){}
+  userID : any
+ formData: any
+  constructor(private fb: FormBuilder, private router: Router, 
+    private activatedRoute: ActivatedRoute,
+    private createProfileService : CreateProfileService){}
 
   ngOnInit(){
     this.diseaseCategories = ['Rett syndrome', 'Kanner’s syndrome', 'PDD-NOS'];
@@ -30,17 +32,25 @@ export class ProfileCreationFormComponent {
       childGender : [''],
       diseaseCategory :['']
     })
+
+     
   }
 
   onSubmit(){
     console.log("creation of profile started")
-    this.createProfileService.createProfile(this.profileForm).subscribe(data=>{
+    // Extract form data as a plain object
+    this.formData = this.profileForm.value;
+    this.createProfileService.createProfile(this.formData).subscribe(data=>{
+       console.log("data in profile: ", data)
         this.successData=data,
         this.profileCreationSuccessMsg = data.message
-        this.userID = data.userId
-        this.router.navigate(['../../dashboard', this.userID])
+        this.userID = this.createProfileService.getUserID()
+        console.log("Profile creation Success")
+       // this.router.navigate(['../../dashboard', this.userID])
+       this.router.navigate(['../../dashboard', this.userID], { relativeTo: this.activatedRoute });
     },(error)=>{
-        this.errorData = error
+        
+        console.log("Error, Profile creation failed with " )
         //this.router.navigate(['../../dashboard', this.userID])
     })
   }
