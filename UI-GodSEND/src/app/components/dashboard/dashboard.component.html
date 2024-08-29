@@ -15,22 +15,30 @@
     <div class="main-content">
         <div class="main-content">
             <div *ngFor="let group of grpsHavingPosts">
+                <div class="myReply">
                 <h3>{{ group.groupName }}</h3>
+                
+            </div>
                 <div *ngFor="let post of group.groupPosts" class="post">
-                    <p>{{ post.postContent }}</p>
-
                     <div class="post-meta">
                         <span class="post-author">- {{groupsInWhichUserIsAMember.userProfile.parentName}}</span>
                         <span class="post-date">{{ post.postAddedDate | date}} {{ post.postAddedDate | date: 'shortTime'
                             }}</span>
                     </div>
+                    <p>{{ post.postContent }}</p>
+                    <a  (click)="onReplyBtn(group.groupId)" class="replyLink">Reply</a>
+                    <div *ngIf="showReplyForm && selectedGroupId === group.groupId">
+                        <textarea [(ngModel)]="replyContent" placeholder="Write your reply..."></textarea>
+                        <button (click)="submitReply(post.postId)" class="submitBtn">Submit Reply</button>
+                    </div>
+                    
                     <div class="replies">
-                        <div class="myReply">
-                            <h6>Replays
+                        
+                            <h6>Replies</h6>
                                 
-                            </h6>
-                            <button class="replyBtn" (click)="onReplyBtn()">Reply</button>
-                        </div>
+                            
+                            
+                        
                         <div *ngFor="let reply of post.postReplies" class="reply">
                             <p>{{ reply.replyContent }}</p>
                             <p>Replied By - {{ reply.repliedByUser }}</p>
@@ -46,6 +54,7 @@
             <div class="group-content">
                 <h3>Groups</h3>
                 <button class="btn btnCSS add-group-btn addBtn" (click)="addANewGroup()">+ </button>
+                
             </div>
             <div class="group-list">
                 <div *ngFor="let group of groupsAvailable" class="group-item">
@@ -55,11 +64,16 @@
                         [disabled]="group.isJoined" (click)="onGroupJoin(group)">  
                         {{ group.groupId ? 'Joined' : 'Join' }}</button> -->
                         <button *ngIf="isUserMember(group)" class="btn btn-warning"
-                        (click)="addAPostToGroup()" >Post</button>
+                        (click)="addAPostToGroup(group.groupId)" >Post</button>
                         <button *ngIf="isUserMember(group)" class="btn btn-success"
                             (click)="openADialog()" >Joined</button>
                         <button *ngIf="!isUserMember(group)" class="btn btn-warning"
                             (click)="joinGroup(group.groupId)">Join</button>
+                    </div>
+                    
+                    <div *ngIf="showPostForm && selectedGrpId === group.groupId">
+                        <textarea [(ngModel)]="postContent" placeholder="Write your post..."></textarea>
+                        <button (click)="submitPost(group.groupId)" class="submitBtn">Submit Post</button>
                     </div>
                     <p>{{ group.groupDescription }}</p>
                 </div>

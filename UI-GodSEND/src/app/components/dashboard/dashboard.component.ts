@@ -11,6 +11,8 @@ import { EventsForUser } from 'src/app/models/eventsForUser';
 import { GetAllGroupsService } from 'src/app/services/get-all-groups.service';
 import { GetAllGroupsForAUserService } from 'src/app/services/get-all-groups-for-auser.service';
 import { JoinAGroupService } from 'src/app/services/join-agroup.service';
+import { ReplayToAPostService } from 'src/app/services/replay-to-apost.service';
+import { AddAPostInAGroupService } from 'src/app/services/add-apost-in-agroup.service';
 
 
 
@@ -45,7 +47,9 @@ export class DashboardComponent {
   constructor(private router : Router, private activateRoute : ActivatedRoute,
     private getAllGroupsService : GetAllGroupsService,
     private getAllGroupsForAUserService: GetAllGroupsForAUserService,
-    private joinAGroupService: JoinAGroupService
+    private joinAGroupService: JoinAGroupService,
+    private replayToAPostService: ReplayToAPostService,
+    private addAPostInAGroupService : AddAPostInAGroupService
   ){}
   ngOnInit() {
       
@@ -144,13 +148,60 @@ export class DashboardComponent {
       });
     }
   }
+  showReplyForm: boolean = false;
+  selectedGroupId: number | null = null;
+  replyContent: string = '';
 
-  onReplyBtn(){
-    // call replyservice fn
+  onReplyBtn(grpID: any){
+    this.showReplyForm = true;
+    this.selectedGroupId = grpID;
   }
 
-  addAPostToGroup(){
-    // call add a post service fn
+  submitReply(postId: any) {
+    console.log(`Reply content: ${this.replyContent} for post ID: ${postId}`);
+    // Add logic to save the reply here
+    
+    // Clear the form and hide it after submission
+   
+    let today = new Date()
+    const formattedDate = today.toISOString().split('T')[0];
+    this.replayToAPostService.replayToAPost(this.userID, postId,this.replyContent,formattedDate).subscribe(data=>{
+      console.log("reply posted Successfully")
+      this.replyContent = '';
+      this.showReplyForm = false;
+      this.selectedGroupId = null;
+    })
+
+    }
+
+  showPostForm: boolean = false;
+  selectedGrpId: number | null = null;
+  postContent: string = '';
+
+    addAPostToGroup(grpID: any){
+      this.showPostForm = true;
+    this.selectedGrpId = grpID;
+    }
+
+    submitPost(groupID){
+      
+      
+
+      
+      let today = new Date()
+      const formattedDate = today.toISOString().split('T')[0];
+      this.addAPostInAGroupService.addAPost(this.userID, groupID,this.postContent,formattedDate).subscribe(data=>{
+        console.log("Posted Successfully")
+        this.postContent = '';
+      this.showPostForm = false;
+      this.selectedGrpId = null;
+      })
+
+      
+    }
   }
+
   
-}
+  
+
+
