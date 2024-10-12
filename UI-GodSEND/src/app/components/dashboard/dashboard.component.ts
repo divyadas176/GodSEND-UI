@@ -135,19 +135,26 @@ export class DashboardComponent {
 
   }
 
-  joinGroup(groupID){
+  joinGroup(groupID: number) {
     if (this.userID) {
       this.joinAGroupService.joinAGroup(groupID, this.userID).subscribe({
-        
         next: () => {
-          console.log("User has joined a group");
-          
-          
+          console.log("User has joined the group");
+  
+          // Update the local state to reflect the change immediately
+          this.userJoinedGrpIDs.push(groupID);
+  
+          // Optionally, you can also update the group object itself if needed
+          const joinedGroup = this.groupsAvailable.find(group => group.groupId === groupID);
+          if (joinedGroup) {
+            joinedGroup.isJoined = true; // Add this property if needed
+          }
         },
-        error: (error) => console.log("Error joining group:", error)
+        error: (error) => console.error("Error joining group:", error)
       });
     }
   }
+  
   showReplyForm: boolean = false;
   selectedGroupId: number | null = null;
   replyContent: string = '';
