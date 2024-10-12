@@ -1,3 +1,5 @@
+
+
 <div class="formContainer">
 <form [formGroup]="userForm">
     <div class="form-group">
@@ -9,8 +11,9 @@
         <input id="password" type="text" formControlName="password" class="form-control"/>
     </div>
     <div class="button-container">
-        <button class="btn btn-success btnLogin" (click)="onRegister()">Login</button>
-        <button class="btn btn-success btnRegister" (click)="onLogin()">Register</button>
+        <button class="btn btn-success btnLogin" (click)="onLogin()">Login</button>
+        <button class="btn btn-success btnRegister" (click)="onRegister()">Register</button>
       </div>
+     
 </form>
 </div>

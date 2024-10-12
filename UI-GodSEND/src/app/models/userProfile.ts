@@ -1,8 +1,11 @@
 export interface UserProfile{
     // userID : string,
-    userName : string,
-    userAddress : string,
+    parentName : string,
+    email : string,
+    address : string
     childName : string,
     childAge : number,
-    disease : string
+    childGender : string
+    diseaseCategory : string
 }
+

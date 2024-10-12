@@ -25,8 +25,10 @@ export class GroupCreationComponent {
   onGroupCreation(){
       this.createGroupService.createGroup(this.groupForm).subscribe(data=>{
         this.successData=data
+        console.log("Group creation success")
       },error=>{
         this.errorData = error
+        console.log("Error, Group creation faled")
       })
   }
 }

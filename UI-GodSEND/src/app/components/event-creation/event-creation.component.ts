@@ -27,8 +27,10 @@ export class EventCreationComponent {
   onEventCreation(){
       this.createEventService.createEvent(this.eventForm).subscribe(data=>{
         this.successData=data
+        console.log("Event creation success")
       },error=>{
         this.errorData = error
+        console.log("Error, Event creation failed")
       })
   }
 }
